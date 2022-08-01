@@ -19,13 +19,16 @@ h1 a{
     width: 676px; 
     padding: 10px; 
     margin: 12px auto 0;
+    word-break: break-all;
 }
 
 .write .text {
+    width: 676px; 
+    padding: 10px; 
+    margin: 12px auto 0;
     table-layout: fixed;
     height: 300px; 
     white-space: pre-line; 
-    word-break: break-all;
 }
 
 .write .button {

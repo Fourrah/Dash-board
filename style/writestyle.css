@@ -15,14 +15,14 @@ h1 a{
     border-bottom: 3px solid gray;
 }
 
-.write input {
+.write .content input {
     width: 676px; 
     padding: 10px; 
     margin: 12px auto 0;
     word-break: break-all;
 }
 
-.write .text {
+.write #text {
     width: 676px; 
     padding: 10px; 
     margin: 12px auto 0;
@@ -32,10 +32,10 @@ h1 a{
 }
 
 .write .button {
-    padding: 0 200px; 
+    padding: 0 300px; 
     margin: 15px auto;
 }   
- 
+/*  
 .write .button a {
     border: 1px solid black; 
     background: gainsboro;
@@ -43,7 +43,7 @@ h1 a{
     padding: 5px;
     text-decoration: none; 
     color: black;
-}
+} */
 
 .write .button a:hover {
     color: blueviolet;

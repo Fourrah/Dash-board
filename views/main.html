@@ -9,6 +9,32 @@
         <link href="http://localhost:3000/mainstyle.css" type="text/css" rel="stylesheet">
         <script src="script/script.js" defer></script>
     </head>
+    <script>
+        const myIp = "localhost";
+
+        $(document).ready(function(){
+            $.ajax({
+                url: `http://${myIp}:3000/board`,
+                method: "GET",
+                dataType: "json"
+            })
+            .done(function(json) {
+                json.forEach(element => {
+
+                    console.log(element);
+                    $("#tableBody").append(`<tr>
+                                                    <td>${element.id}</td>
+                                                    <td>${element.writer}</td>
+                                                    <td>${element.title}</td>
+                                                    <td>${element.created_time}</td>
+                                            </tr>`)
+                });
+            });
+
+
+        });
+
+    </script>
     <body>
         <header>
             <div class="container">
@@ -27,13 +53,13 @@
                 <th>Date</th>
             </tr>
             </thead>
-            <tbody class="table_body">
-                <tr>
+            <tbody id="tableBody" class="table_body">
+                <!-- <tr>
                     <td>1</td>
                     <td>sara</td>
                     <td>자바스트립 공부하기</td>
                     <td>2022/08/01</td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <footer>

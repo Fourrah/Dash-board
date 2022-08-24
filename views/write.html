@@ -9,6 +9,35 @@
         <link href="http://localhost:3000/writestyle.css" type="text/css" rel="stylesheet">
         <script src="script/script.js" defer></script>
     </head>
+    <script>
+        const myIp = "localhost";
+        function save() {
+            let title = $("#title").val();
+            let writer = $("#writer").val();
+            let contents = $("#contents").val();
+
+            let myData = {
+                title: title,
+                writer: writer,
+                contents: contents
+            }
+
+            $.ajax({
+                url: `http://${myIp}:3000/board`,
+                method: "POST",
+                data: JSON.stringify(myData),
+                contentType: "application/json; charset=utf-8"
+            })
+            .done(function() {
+                alert("Successfully inserted");
+                location.href = `http://${myIp}:3000`;
+            })
+            .fail(function() {
+                alert("inserted failed. Please check it again.");
+            });
+
+        }
+    </script>
     <body>
         <header>
             <div class="container">
@@ -18,12 +47,12 @@
         <main>
             <form class="write">
                 <div class="content">
-                    <input type="text"  name="textTitle" placeholder="제목을 입력해주세요."required>
-                    <input type="text" name="writerName" placeholder="작성자 이름을 입력해주세요."  required>
-                    <textarea id="text" placeholder="내용을 입력해주세요." required></textarea>
+                    <input id="title" type="text"  name="textTitle" placeholder="제목을 입력해주세요."required>
+                    <input id="writer" type="text" name="writerName" placeholder="작성자 이름을 입력해주세요."  required>
+                    <textarea id="contents" placeholder="내용을 입력해주세요." required></textarea>
                 </div>
                 <div class="button">
-                    <input type="submit" id="textSubmit" value="저장" onclick="">
+                    <input type="button" id="textSubmit" value="저장" onclick="save()">
                     <input type="button" id="textCancel"  value="취소" onclick="location.replace('main.html');">
                 </div>
             </form>
